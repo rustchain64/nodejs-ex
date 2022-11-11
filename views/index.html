@@ -255,22 +255,9 @@ h1 {
   <div class="bg bg3"></div>
 <section class='container'>
           <hgroup>
-            <h1>PIE.IO DALLAS deployment</h1>
+            <h1>PIE.IO API DALLAS deployment</h1>
           </hgroup>
-
-
         <div class="row">
-          <section class='col-xs-12 col-sm-6 col-md-6'>
-            <section>
-              <h2>How to use this example application effectively and efficiently</h2>
-                <p>For instructions on how to use this application with OpenShift, start by reading the <a href="http://docs.okd.io/latest/dev_guide/templates.html#using-the-quickstart-templates">Developer Guide</a>.</p>
-          </section>
-
-<!-- </section>
-<section class="col-xs-12 col-sm-6 col-md-6"> -->
-
-                <h2>Verify your application</h2>
-                <h2>Request information</h2>
                 <p>Page view count:
                 <% if (pageCountMessage) { %>
                    <span class="code" id="count-value"><%=pageCountMessage%></span>
@@ -298,9 +285,40 @@ h1 {
           </section>
         </div>
 
-        <footer>
-          <div class="logo"><a href="https://www.openshift.com/"></a></div>
-        </footer>
+        <div class="container" id="app">
+          <div>
+            <h1>API Level 0 Example - Node.js</h1>
+            <p class="lead">
+              This example showcases a basic mapping of a business operation to a
+              remote endpoint. By taking this approach, clients leverage the HTTP
+              protocol as a transport mechanism to call upon services. Application
+              engineers define their APIs using a broad interpretation of REST
+              fundamentals, encouraging freedom in design and quick prototyping.
+            </p>
+    
+            <h2>Using the greeting service</h2>
+    
+            <form class="form-inline" @submit.prevent="getJSON">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  ref="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="World"
+                />
+              </div>
+              <button id="invoke" type="submit" class="btn btn-success">
+                Invoke
+              </button>
+            </form>
+    
+            <h3>Result:</h3>
+            <pre><code id="greeting-result">{{greetingResult}}</code></pre>
+          </div>
+        </div>
+
 </section>
 
 <script
