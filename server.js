@@ -109,6 +109,11 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+app.use('/api/greeting', (request, response) => {
+  const name = request.query ? request.query.name : undefined;
+  response.send({ content: `Hello, ${name || 'World!'}` });
+});
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
