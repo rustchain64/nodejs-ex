@@ -287,6 +287,12 @@
       "displayName": "Custom NPM Mirror URL",
       "description": "The custom NPM mirror URL",
       "value": ""
+    },
+    {
+      "name": "MONGO_URL",
+      "displayName": "mongodb URL",
+      "description": "The URL to access mangodb",
+      "value": "mongodb://admin:secret@172.21.224.244:27017/mongo_db"
     }
   ]
 }

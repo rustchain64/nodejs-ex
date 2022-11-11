@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Welcome to OpenShift CHERRY PIE Dallas</title>
+  <title>Welcome to OpenShift FISH PIE Dallas</title>
 
 
 <style>
@@ -302,5 +302,32 @@ h1 {
           <div class="logo"><a href="https://www.openshift.com/"></a></div>
         </footer>
 </section>
+
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.10/vue.min.js"
+      integrity="sha512-H8u5mlZT1FD7MRlnUsODppkKyk+VEiCmncej8yZW1k/wUT90OQon0F9DSf/2Qh+7L/5UHd+xTLrMszjHEZc2BA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          greetingResult: "Invoke the service to see the result.",
+        },
+        methods: {
+          async getJSON(e) {
+            const name = this.$refs.name.value;
+            const result = await fetch(`/api/greeting?name=${name}`);
+            if (!result.ok) {
+              const message = `Error: ${result.status} - ${result.statusText}`;
+              throw new Error(message);
+            }
+            const data = await result.json();
+            this.greetingResult = JSON.stringify(data);
+          },
+        },
+      });
+    </script>
 </body>
 </html>

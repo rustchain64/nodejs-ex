@@ -184,6 +184,9 @@ You may have noticed the index page "Page view count" reads "No database configu
 	  -e MONGODB_PASSWORD=secret \
 	  -e MONGODB_ADMIN_PASSWORD=super-secret
 
+          "For my command Prompt: use"
+          oc new-app centos/mongodb-26-centos7 -e MONGODB_USER=admin -e MONGODB_DATABASE=mongo_db -e MONGODB_PASSWORD=secret -e MONGODB_ADMIN_PASSWORD=super-secret
+
 The `-e` flag sets the environment variables we want used in the configuration of our new app.
 
 Running `oc status` or checking the web console will reveal the address of the newly created MongoDB:
@@ -203,9 +206,12 @@ Note that the url for our new Mongo instance, for our example, is `172.30.0.112:
 
 #### Setting environment variables
 
-To take a look at environment variables set for each pod, run `oc env pods --all --list`.
+To take a look at environment variables set for each pod, run (`oc env pods --all --list` is depricated) 
+>>>>> use: `oc set env pods --all --list`.
 
 We need to add the environment variable `MONGO_URL` to our Node.js web app so that it will utilize our MongoDB, and enable the "Page view count" feature. Run:
+
+        "With my oc status response : URL ": MONGO_URL='mongodb://admin:secret@172.21.224.244:27017/mongo_db'
 
         $ oc set env dc/nodejs-ex MONGO_URL='mongodb://admin:secret@172.30.0.112:27017/mongo_db'
 
